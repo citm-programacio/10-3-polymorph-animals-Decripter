@@ -5,15 +5,16 @@ using namespace std;
 class Animal
 {
 public:
-    void habla()
+    virtual void habla()
     {
+        cout << "Xx" << endl;
     };
 };
 
 class Gato : public Animal
 {
 public:
-    void habla()
+    void habla() override
     {
         cout << "Miau " << endl;
     };
@@ -22,7 +23,7 @@ public:
 class Perro : public Animal
 {
 public:
-    void habla()
+    void habla() override
     {
         cout << "Guau " << endl;
     };
@@ -30,12 +31,14 @@ public:
 
 int main()
 {
-    Gato* gat1 = new Gato;
-    Perro* perr1 = new Perro;
+    Animal* gat1 = new Gato;
+    Animal* perr1 = new Perro;
 
     gat1->habla();
     perr1->habla();
 
+    delete gat1;
+    delete perr1;
 }
 
 /*
